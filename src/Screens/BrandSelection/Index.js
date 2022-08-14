@@ -1,4 +1,4 @@
-import { Text, View, FlatList, ImageBackground } from "react-native";
+import { Text, View, FlatList, ImageBackground, Pressable } from "react-native";
 import React, { useState } from "react";
 import {
   Appbar,
@@ -86,22 +86,26 @@ const BrandSelection = ({ navigation }) => {
   return (
     <View style={{ flex: 1, backgroundColor: "silver" }}>
       <Appbar.Header>
-        <Appbar.BackAction color="white" onPress={() => {}} />
+        <Appbar.BackAction color="white" onPress={() => navigation.goBack()} />
         <Appbar.Content color="white" title="Brand List" />
       </Appbar.Header>
       <FlatList
         data={data}
         keyExtractor={(item, index) => index}
         renderItem={({ item }) => (
-          <Surface
-            style={[styles.surface, { backgroundColor: item.background }]}
-            elevation={4}
+          <Pressable
             onPress={() => {
+              console.log("insside");
               navigation.navigate("Home");
             }}
           >
-            <Avatar.Image source={item.Logo} />
-          </Surface>
+            <Surface
+              style={[styles.surface, { backgroundColor: item.background }]}
+              elevation={4}
+            >
+              <Avatar.Image source={item.Logo} />
+            </Surface>
+          </Pressable>
         )}
       />
     </View>
