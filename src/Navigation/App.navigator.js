@@ -8,6 +8,7 @@ import SignIn from "../Screens/SignIn/Index";
 import SignUp from "../Screens/SignUp/Index";
 import ForgotPassword from "../Screens/ForgetPassword/Index";
 import ResetPassword from "../Screens/ResetPassword/Index";
+import CartScreen from "../Screens/Cart";
 
 const { Navigator, Screen } = createNativeStackNavigator();
 
@@ -22,6 +23,7 @@ const AppNavigator = () => {
         <Screen name="ResetPassword" component={ResetPassword} />
         <Screen name="ForgotPassword" component={ForgotPassword} />
         <Screen name="SignUp" component={SignUp} />
+        <Screen name="CartScreen" component={CartScreen} />
       </Navigator>
     </NavigationContainer>
   );

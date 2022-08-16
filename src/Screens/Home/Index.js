@@ -13,6 +13,8 @@ import {
   IconButton,
 } from "react-native-paper";
 import styles from "./Styles";
+import { addToCart } from "../../store/features/cartSlice";
+import { useDispatch } from "react-redux";
 
 const Home = ({ navigation }) => {
   const data = [
@@ -143,6 +145,9 @@ const Home = ({ navigation }) => {
       id: "13",
     },
   ];
+
+  const dispatch = useDispatch();
+
   const [value, setValue] = useState(null);
   //for modal
   const [visible, setVisible] = useState(false);
@@ -150,19 +155,28 @@ const Home = ({ navigation }) => {
   const hideModal = () => setVisible(false);
   //for snackbar
   const [visible1, setVisible1] = useState(false);
-  const onToggleSnackBar = () => setVisible1(!visible1);
+  const onToggleSnackBar = (item) => {
+    setVisible1(!visible1);
+    dispatch(addToCart(item));
+  };
   const onDismissSnackBar = () => setVisible(false);
   return (
     <View style={{ flex: 1, backgroundColor: "white" }}>
       <Appbar.Header>
         <Appbar.Action icon="menu" color="white" onPress={() => {}} />
         <Appbar.Content color="white" title="Home" />
-        <Appbar.Action icon="card-multiple" color="white" onPress={() => {}} />
+        <Appbar.Action
+          icon="card-multiple"
+          color="white"
+          onPress={() => {
+            navigation.navigate("BrandSelection");
+          }}
+        />
         <Appbar.Action
           icon="cart"
           color="white"
           onPress={() => {
-            navigation.navigate("BrandSelection");
+            navigation.navigate("CartScreen");
           }}
         />
       </Appbar.Header>
@@ -181,12 +195,12 @@ const Home = ({ navigation }) => {
                 title={item.shirt}
                 subtitleStyle={{ color: "#9ED2C6" }}
                 subtitle={item.price}
-                right={() => (
+                right={(item) => (
                   <IconButton
                     style={{ marginBottom: 20 }}
                     icon="cart-arrow-down"
                     color="#9ED2C6"
-                    onPress={onToggleSnackBar}
+                    onPress={() => onToggleSnackBar(item)}
                   />
                 )}
               />
