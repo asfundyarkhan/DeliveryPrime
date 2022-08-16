@@ -1,3 +1,4 @@
+import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { Text, View, Image, ImageBackground } from "react-native";
 import AppIntroSlider from "react-native-app-intro-slider";
@@ -23,32 +24,35 @@ const slides = [
     backgroundColor: "#22bcb5",
   },
 ];
-const _renderItem = ({ item }) => {
-  return (
-    <View style={styles.slide}>
-      <ImageBackground source={item.image} style={styles.background}>
-        {/* <Image source={item.image} /> */}
-        <Text style={styles.text}>{item.text}</Text>
-      </ImageBackground>
-    </View>
-  );
-};
-
-const _renderNextButton = () => {
-  return (
-    <View>
-      <Text style={styles.buttonText}>NEXT</Text>
-    </View>
-  );
-};
-
-const _onDone = () => {
-  // User finished the introduction. Show real app through
-  // navigation or simply by controlling state
-  this.setState({ showRealApp: true });
-};
 
 const OnBoarding = () => {
+  const navigation = useNavigation();
+
+  const _renderItem = ({ item }) => {
+    return (
+      <View style={styles.slide}>
+        <ImageBackground source={item.image} style={styles.background}>
+          {/* <Image source={item.image} /> */}
+          <Text style={styles.text}>{item.text}</Text>
+        </ImageBackground>
+      </View>
+    );
+  };
+
+  const _renderNextButton = () => {
+    return (
+      <View>
+        <Text style={styles.buttonText}>NEXT</Text>
+      </View>
+    );
+  };
+
+  const _onDone = () => {
+    // User finished the introduction. Show real app through
+    // navigation or simply by controlling state
+    // this.setState({ showRealApp: true });
+    navigation.navigate("SignIn");
+  };
   return (
     <>
       <AppIntroSlider
