@@ -155,9 +155,9 @@ const Home = ({ navigation }) => {
   const hideModal = () => setVisible(false);
   //for snackbar
   const [visible1, setVisible1] = useState(false);
-  const onToggleSnackBar = (item) => {
+  const onToggleSnackBar = ({ Logo, shirt, articleName, id, price, title }) => {
     setVisible1(!visible1);
-    dispatch(addToCart(item));
+    dispatch(addToCart({ Logo, shirt, articleName, id, price, title }));
   };
   const onDismissSnackBar = () => setVisible(false);
   return (
@@ -183,7 +183,8 @@ const Home = ({ navigation }) => {
       <FlatList
         data={data}
         numColumns={2}
-        keyExtractor={(item, index) => index}
+        keyExtractor={(item) => item.id}
+        //keyExtractor={(item, index) => index}
         renderItem={({ item }) => (
           <Surface
             style={[styles.surface, { backgroundColor: "#9ED2C6" }]}
@@ -195,12 +196,14 @@ const Home = ({ navigation }) => {
                 title={item.shirt}
                 subtitleStyle={{ color: "#9ED2C6" }}
                 subtitle={item.price}
-                right={(item) => (
+                right={() => (
                   <IconButton
                     style={{ marginBottom: 20 }}
                     icon="cart-arrow-down"
                     color="#9ED2C6"
-                    onPress={() => onToggleSnackBar(item)}
+                    onPress={() => {
+                      onToggleSnackBar(item);
+                    }}
                   />
                 )}
               />
@@ -230,14 +233,14 @@ const Home = ({ navigation }) => {
         visible={visible1}
         duration={2000}
         onDismiss={onDismissSnackBar}
-        action={{
-          label: "Undo",
-          onPress: () => {
-            // Do something
-          },
-        }}
+        // action={{
+        //   label: "Undo",
+        //   onPress: () => {
+        //     // Do something
+        //   },
+        // }}
       >
-        {`item added to cart ${null}`}
+        {`item added to cart `}
       </Snackbar>
     </View>
   );

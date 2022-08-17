@@ -9,11 +9,10 @@ import styles from "./styles";
 const CartScreen = () => {
   const navigation = useNavigation();
   const { items } = useSelector((state) => state.Cart);
-  console.log("items=========", items);
   const [isVisible, setVisible] = useState(false);
   return (
     <View style={{ flex: 1 }}>
-      <Appbar.Header style={{ backgroundColor: theme.colors.accent }}>
+      <Appbar.Header style={{ backgroundColor: theme.colors.primary }}>
         <Appbar.BackAction
           color="white"
           onPress={() => {
@@ -24,10 +23,13 @@ const CartScreen = () => {
       </Appbar.Header>
 
       {items.length ? (
-        <View style={{ flex: 1 }}>
+        <View
+          style={{ flex: 1, alignItems: "center", justifyContent: "center" }}
+        >
           <Text style={styles.heading}>Your Currently Selected items </Text>
           <FlatList
             data={items}
+            numColumns={2}
             keyExtractor={(item) => item.id}
             renderItem={(val) => {
               return (
@@ -37,15 +39,14 @@ const CartScreen = () => {
                       <View
                         style={{ flexDirection: "row", alignItems: "center" }}
                       >
-                        <Avatar.Image size={80} source={val.shirt} />
-                        <Text style={styles.textStyle}>{val.item.title}</Text>
+                        <Avatar.Image size={80} source={val.item.Logo} />
+                        <Text style={styles.textStyle}>
+                          {val.item.articleName}
+                        </Text>
                       </View>
 
-                      {/* <Text>
-                        {val.item.quantity} X{" "} */}
                       <Text style={{ fontSize: 24, fontWeight: "600" }}>
                         {val.item.price}
-                        {/* </Text> */}
                       </Text>
                     </View>
                   </Surface>
@@ -65,7 +66,7 @@ const CartScreen = () => {
             alignItems: "center",
           }}
         >
-          <Text style={{ fontSize: 30, color: theme.colors.accent }}>
+          <Text style={{ fontSize: 30, color: theme.colors.primary }}>
             Your Cart Is Empty
           </Text>
         </View>
@@ -74,7 +75,7 @@ const CartScreen = () => {
       <Snackbar
         visible={isVisible}
         onDismiss={() => setVisible(false)}
-        duration={1000}
+        //  duration={1000}
       >
         item is being removed
       </Snackbar>

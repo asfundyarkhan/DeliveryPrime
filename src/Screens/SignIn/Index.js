@@ -15,12 +15,18 @@ const SignIn = () => {
   const [hidePassword, setHidePassword] = useState(true);
   return (
     <SafeAreaView style={styles.container}>
-      {/* <View style={styles.logo}>
+      <View style={styles.logo}>
         <Image
-          style={{ resizeMode: "contain", height: 200, width: 200 }}
-          source={require("../../../assets/Logo.jpeg")}
+          style={{
+            resizeMode: "contain",
+            height: 200,
+            width: 200,
+            backgroundColor: "#f2f2f2",
+            opacity: 0.5,
+          }}
+          source={require("../../../assets/logo.jpeg")}
         />
-      </View> */}
+      </View>
       <Text style={styles.text}>Sign In to your account</Text>
       <Formik
         initialValues={{ email: "", password: "" }}
