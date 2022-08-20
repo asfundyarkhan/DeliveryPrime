@@ -60,8 +60,14 @@ const CartScreen = () => {
                         </Text>
                       </View>
 
-                      <Text style={{ fontSize: 24, fontWeight: "600" }}>
-                        {val.item.price}
+                      <Text
+                        style={{
+                          fontSize: 24,
+                          fontWeight: "600",
+                          marginLeft: 5,
+                        }}
+                      >
+                        Rs: {val.item.price}
                       </Text>
                     </View>
                   </Surface>

@@ -23,7 +23,7 @@ const Home = ({ navigation }) => {
       articleName: "shirt 1",
       Logo: require("../../../assets/Logo1.png"),
       background: "#ed1b24",
-      price: "PKR 1199",
+      price: 1299,
       shirt: require("../../../assets/shirt1.png"),
       id: "0",
     },
@@ -32,7 +32,7 @@ const Home = ({ navigation }) => {
       articleName: "shirt 1",
       Logo: require("../../../assets/Logo2.png"),
       background: "#E7B635",
-      price: "PKR 699",
+      price: 1299,
       shirt: require("../../../assets/shirt2.png"),
       id: "1",
     },
@@ -41,7 +41,7 @@ const Home = ({ navigation }) => {
       articleName: "shirt 1",
       Logo: require("../../../assets/Logo3.png"),
       background: "#54BAB9",
-      price: "PKR 799",
+      price: 1299,
       shirt: require("../../../assets/shirt8.png"),
       id: "2",
     },
@@ -50,7 +50,7 @@ const Home = ({ navigation }) => {
       articleName: "shirt 1",
       Logo: require("../../../assets/Logo4.png"),
       background: "#ffffff",
-      price: "PKR 799",
+      price: 1299,
       shirt: require("../../../assets/shirt4.png"),
       id: "3",
     },
@@ -59,7 +59,7 @@ const Home = ({ navigation }) => {
       articleName: "shirt 1",
       Logo: require("../../../assets/Logo5.png"),
       background: "#4A855F",
-      price: "PKR 1299",
+      price: 1299,
       shirt: require("../../../assets/shirt5.png"),
       id: "4",
     },
@@ -68,7 +68,7 @@ const Home = ({ navigation }) => {
       articleName: "shirt 1",
       Logo: require("../../../assets/Logo6.png"),
       background: "#000000",
-      price: "PKR 1499",
+      price: 1299,
       shirt: require("../../../assets/shirt6.png"),
       id: "5",
     },
@@ -77,7 +77,7 @@ const Home = ({ navigation }) => {
       articleName: "shirt 1",
       Logo: require("../../../assets/Logo7.png"),
       background: "#9C1714",
-      price: "PKR 999",
+      price: 1299,
       shirt: require("../../../assets/shirt7.png"),
       id: "6",
     },
@@ -86,7 +86,7 @@ const Home = ({ navigation }) => {
       articleName: "shirt 1",
       Logo: require("../../../assets/Logo1.png"),
       background: "#ed1b24",
-      price: "PKR 899",
+      price: 1299,
       shirt: require("../../../assets/shirt1.png"),
       id: "7",
     },
@@ -95,9 +95,7 @@ const Home = ({ navigation }) => {
       articleName: "shirt 1",
       Logo: require("../../../assets/Logo2.png"),
       background: "#E7B635",
-
-
-      price: "PKR 599",
+      price: 1299,
       shirt: require("../../../assets/shirt2.png"),
       id: "8",
     },
@@ -106,7 +104,7 @@ const Home = ({ navigation }) => {
       articleName: "shirt 1",
       Logo: require("../../../assets/Logo3.png"),
       background: "#54BAB9",
-      price: "PKR 1299",
+      price: 1299,
       shirt: require("../../../assets/shirt7.png"),
       id: "9",
     },
@@ -115,7 +113,7 @@ const Home = ({ navigation }) => {
       articleName: "shirt 1",
       Logo: require("../../../assets/Logo4.png"),
       background: "#ffffff",
-      price: "PKR 999",
+      price: 1299,
       shirt: require("../../../assets/shirt4.png"),
       id: "10",
     },
@@ -124,7 +122,7 @@ const Home = ({ navigation }) => {
       articleName: "shirt 1",
       Logo: require("../../../assets/Logo5.png"),
       background: "#4A855F",
-      price: "PKR 999",
+      price: 1299,
       shirt: require("../../../assets/shirt5.png"),
       id: "11",
     },
@@ -133,7 +131,7 @@ const Home = ({ navigation }) => {
       articleName: "shirt 1",
       Logo: require("../../../assets/Logo6.png"),
       background: "#000000",
-      price: "PKR 1499",
+      price: 1299,
       shirt: require("../../../assets/shirt6.png"),
       id: "12",
     },
@@ -142,7 +140,7 @@ const Home = ({ navigation }) => {
       articleName: "shirt 1",
       Logo: require("../../../assets/Logo7.png"),
       background: "#9C1714",
-      price: "PKR 799",
+      price: 1299,
       shirt: require("../../../assets/shirt7.png"),
       id: "13",
     },
@@ -196,7 +194,7 @@ const Home = ({ navigation }) => {
                 titleStyle={{ height: 5, color: "#9ED2C6" }}
                 title={item.shirt}
                 subtitleStyle={{ color: "#9ED2C6" }}
-                subtitle={item.price}
+                subtitle={`PKR ${item.price}`}
                 right={() => (
                   <IconButton
                     style={{ marginBottom: 20 }}
@@ -233,7 +231,6 @@ const Home = ({ navigation }) => {
       <Snackbar
         visible={visible1}
         duration={2000}
-
         onDismiss={() => setVisible1(false)}
 
         // action={{

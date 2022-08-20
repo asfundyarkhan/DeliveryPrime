@@ -11,7 +11,7 @@ export const cartSlice = createSlice({
   reducers: {
     addToCart(state, action) {
       state.items.push(action.payload);
-      state.totalPrice += action.payload.price + action.payload.quantity;
+      state.totalPrice += action.payload.price;
     },
     removeFromCart(state, action) {
       const productId = action.payload;
