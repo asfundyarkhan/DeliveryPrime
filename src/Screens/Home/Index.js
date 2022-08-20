@@ -231,7 +231,7 @@ const Home = ({ navigation }) => {
       />
       <Snackbar
         visible={visible1}
-        duration={2000}
+        duration={200}
         onDismiss={onDismissSnackBar}
         // action={{
         //   label: "Undo",
