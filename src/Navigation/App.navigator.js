@@ -9,6 +9,8 @@ import SignUp from "../Screens/SignUp/Index";
 import ForgotPassword from "../Screens/ForgetPassword/Index";
 import ResetPassword from "../Screens/ResetPassword/Index";
 import CartScreen from "../Screens/Cart";
+import PaymentMethod from "../Screens/PaymentMethod/Index";
+import CardPayment from "../Screens/CardPayment/Index";
 
 const { Navigator, Screen } = createNativeStackNavigator();
 
@@ -23,7 +25,9 @@ const AppNavigator = () => {
         <Screen name="ResetPassword" component={ResetPassword} />
         <Screen name="ForgotPassword" component={ForgotPassword} />
         <Screen name="SignUp" component={SignUp} />
+        <Screen name="PaymentMethod" component={PaymentMethod} />
         <Screen name="CartScreen" component={CartScreen} />
+        <Screen name="CardPayment" component={CardPayment} />
       </Navigator>
     </NavigationContainer>
   );
