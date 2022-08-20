@@ -54,7 +54,7 @@ const CartScreen = () => {
                       <View
                         style={{ flexDirection: "row", alignItems: "center" }}
                       >
-                        <Avatar.Image size={80} source={val.item.Logo} />
+                        <Avatar.Image size={80} source={val.item.shirt} />
                         <Text style={styles.textStyle}>
                           {val.item.articleName}
                         </Text>
@@ -90,7 +90,7 @@ const CartScreen = () => {
       <Snackbar
         visible={isVisible}
         onDismiss={() => setVisible(false)}
-        //  duration={1000}
+        duration={1000}
       >
         item is being removed
       </Snackbar>

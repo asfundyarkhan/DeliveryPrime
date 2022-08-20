@@ -23,7 +23,7 @@ const Home = ({ navigation }) => {
       articleName: "shirt 1",
       Logo: require("../../../assets/Logo1.png"),
       background: "#ed1b24",
-      price: "₹500",
+      price: "PKR 1199",
       shirt: require("../../../assets/shirt1.png"),
       id: "0",
     },
@@ -32,7 +32,7 @@ const Home = ({ navigation }) => {
       articleName: "shirt 1",
       Logo: require("../../../assets/Logo2.png"),
       background: "#E7B635",
-      price: "₹500",
+      price: "PKR 699",
       shirt: require("../../../assets/shirt2.png"),
       id: "1",
     },
@@ -41,7 +41,7 @@ const Home = ({ navigation }) => {
       articleName: "shirt 1",
       Logo: require("../../../assets/Logo3.png"),
       background: "#54BAB9",
-      price: "₹500",
+      price: "PKR 799",
       shirt: require("../../../assets/shirt8.png"),
       id: "2",
     },
@@ -50,7 +50,7 @@ const Home = ({ navigation }) => {
       articleName: "shirt 1",
       Logo: require("../../../assets/Logo4.png"),
       background: "#ffffff",
-      price: "₹500",
+      price: "PKR 799",
       shirt: require("../../../assets/shirt4.png"),
       id: "3",
     },
@@ -59,7 +59,7 @@ const Home = ({ navigation }) => {
       articleName: "shirt 1",
       Logo: require("../../../assets/Logo5.png"),
       background: "#4A855F",
-      price: "₹500",
+      price: "PKR 1299",
       shirt: require("../../../assets/shirt5.png"),
       id: "4",
     },
@@ -68,7 +68,7 @@ const Home = ({ navigation }) => {
       articleName: "shirt 1",
       Logo: require("../../../assets/Logo6.png"),
       background: "#000000",
-      price: "₹500",
+      price: "PKR 1499",
       shirt: require("../../../assets/shirt6.png"),
       id: "5",
     },
@@ -77,7 +77,7 @@ const Home = ({ navigation }) => {
       articleName: "shirt 1",
       Logo: require("../../../assets/Logo7.png"),
       background: "#9C1714",
-      price: "₹500",
+      price: "PKR 999",
       shirt: require("../../../assets/shirt7.png"),
       id: "6",
     },
@@ -86,7 +86,7 @@ const Home = ({ navigation }) => {
       articleName: "shirt 1",
       Logo: require("../../../assets/Logo1.png"),
       background: "#ed1b24",
-      price: "₹500",
+      price: "PKR 899",
       shirt: require("../../../assets/shirt1.png"),
       id: "7",
     },
@@ -95,7 +95,9 @@ const Home = ({ navigation }) => {
       articleName: "shirt 1",
       Logo: require("../../../assets/Logo2.png"),
       background: "#E7B635",
-      price: 500,
+
+
+      price: "PKR 599",
       shirt: require("../../../assets/shirt2.png"),
       id: "8",
     },
@@ -104,7 +106,7 @@ const Home = ({ navigation }) => {
       articleName: "shirt 1",
       Logo: require("../../../assets/Logo3.png"),
       background: "#54BAB9",
-      price: "₹500",
+      price: "PKR 1299",
       shirt: require("../../../assets/shirt7.png"),
       id: "9",
     },
@@ -113,7 +115,7 @@ const Home = ({ navigation }) => {
       articleName: "shirt 1",
       Logo: require("../../../assets/Logo4.png"),
       background: "#ffffff",
-      price: "₹500",
+      price: "PKR 999",
       shirt: require("../../../assets/shirt4.png"),
       id: "10",
     },
@@ -122,7 +124,7 @@ const Home = ({ navigation }) => {
       articleName: "shirt 1",
       Logo: require("../../../assets/Logo5.png"),
       background: "#4A855F",
-      price: "₹500",
+      price: "PKR 999",
       shirt: require("../../../assets/shirt5.png"),
       id: "11",
     },
@@ -131,7 +133,7 @@ const Home = ({ navigation }) => {
       articleName: "shirt 1",
       Logo: require("../../../assets/Logo6.png"),
       background: "#000000",
-      price: "₹500",
+      price: "PKR 1499",
       shirt: require("../../../assets/shirt6.png"),
       id: "12",
     },
@@ -140,7 +142,7 @@ const Home = ({ navigation }) => {
       articleName: "shirt 1",
       Logo: require("../../../assets/Logo7.png"),
       background: "#9C1714",
-      price: "₹500",
+      price: "PKR 799",
       shirt: require("../../../assets/shirt7.png"),
       id: "13",
     },
@@ -159,7 +161,6 @@ const Home = ({ navigation }) => {
     setVisible1(!visible1);
     dispatch(addToCart({ Logo, shirt, articleName, id, price, title }));
   };
-  const onDismissSnackBar = () => setVisible(false);
   return (
     <View style={{ flex: 1, backgroundColor: "white" }}>
       <Appbar.Header>
@@ -232,7 +233,9 @@ const Home = ({ navigation }) => {
       <Snackbar
         visible={visible1}
         duration={2000}
-        onDismiss={onDismissSnackBar}
+
+        onDismiss={() => setVisible1(false)}
+
         // action={{
         //   label: "Undo",
         //   onPress: () => {
