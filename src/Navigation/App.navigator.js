@@ -11,13 +11,15 @@ import ResetPassword from "../Screens/ResetPassword/Index";
 import CartScreen from "../Screens/Cart";
 import PaymentMethod from "../Screens/PaymentMethod/Index";
 import CardPayment from "../Screens/CardPayment/Index";
+import MapScreen from "../Screens/MapView/Index";
 
 const { Navigator, Screen } = createNativeStackNavigator();
 
 const AppNavigator = () => {
   return (
-    <NavigationContainer initialRouteName="OnBoarding">
+    <NavigationContainer initialRouteName="MapScreen">
       <Navigator screenOptions={{ headerShown: false }}>
+        <Screen name="MapScreen" component={MapScreen} />
         <Screen name="OnBoarding" component={OnBoarding} />
         <Screen name="Home" component={Home} />
         <Screen name="BrandSelection" component={BrandSelection} />
