@@ -95,6 +95,8 @@ const Home = ({ navigation }) => {
       articleName: "shirt 1",
       Logo: require("../../../assets/Logo2.png"),
       background: "#E7B635",
+
+
       price: "PKR 599",
       shirt: require("../../../assets/shirt2.png"),
       id: "8",
@@ -231,7 +233,9 @@ const Home = ({ navigation }) => {
       <Snackbar
         visible={visible1}
         duration={2000}
+
         onDismiss={() => setVisible1(false)}
+
         // action={{
         //   label: "Undo",
         //   onPress: () => {
