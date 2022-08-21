@@ -6,13 +6,25 @@ import { Formik } from "formik";
 import { LoginForm } from "./LoginForm";
 import { useNavigation } from "@react-navigation/native";
 import { theme } from "../../../App.styles";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import authentication from "../../config/firebase";
 
 const SignIn = () => {
   const navigation = useNavigation();
-  const handleLogin = () => {
-    navigation.navigate("BrandSelection");
-  };
+
   const [hidePassword, setHidePassword] = useState(true);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleLogin = (values) => {
+    console.log("values ----", values);
+    // try {
+    //   signInWithEmailAndPassword(authentication,values.email,values.password)
+    navigation.navigate("BrandSelection");
+    // } catch (error) {
+
+    // }
+  };
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.logo}>
