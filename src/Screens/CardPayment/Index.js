@@ -46,14 +46,14 @@ const CardPayment = () => {
 
   return (
     <View style={styles.container}>
-      <Appbar.Header style={{ backgroundColor: theme.colors.accent }}>
+      <Appbar.Header style={{ backgroundColor: theme.colors.primary }}>
         <Appbar.BackAction
           color="white"
           onPress={() => {
             navigation.goBack();
           }}
         />
-        <Appbar.Content color="white" title="Home" />
+        <Appbar.Content color="white" title="Card Details" />
       </Appbar.Header>
       <Image
         style={styles.image}
@@ -128,7 +128,7 @@ const CardPayment = () => {
         mode="contained"
         theme={{
           roundness: 20,
-          colors: { primary: "#A0BBD6" },
+          colors: { primary: theme.colors.primary },
         }}
         onPress={() => console.log("Pressed")}
         style={styles.button}
