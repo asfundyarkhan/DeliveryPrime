@@ -38,10 +38,12 @@ const CartScreen = () => {
               borderRadius: theme.roundness,
               marginVertical: 10,
             }}
-            ListFooterComponent={() => (
+            ListFooterComponent={(val) => (
               <Button
                 labelStyle={{ color: "white" }}
-                onPress={() => navigation.navigate("PaymentMethod")}
+                onPress={() => {
+                  navigation.navigate("PaymentMethod");
+                }}
               >
                 Total: {totalPrice}
               </Button>

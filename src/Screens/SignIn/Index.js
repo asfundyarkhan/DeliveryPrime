@@ -6,8 +6,6 @@ import { Formik } from "formik";
 import { LoginForm } from "./LoginForm";
 import { useNavigation } from "@react-navigation/native";
 import { theme } from "../../../App.styles";
-import { signInWithEmailAndPassword } from "firebase/auth";
-import authentication from "../../config/firebase";
 
 const SignIn = () => {
   const navigation = useNavigation();

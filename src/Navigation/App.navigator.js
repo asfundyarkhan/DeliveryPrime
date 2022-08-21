@@ -17,10 +17,10 @@ const { Navigator, Screen } = createNativeStackNavigator();
 
 const AppNavigator = () => {
   return (
-    <NavigationContainer initialRouteName="OrderList">
+    <NavigationContainer initialRouteName="onBoarding">
       <Navigator screenOptions={{ headerShown: false }}>
-        <Screen name="OrderList" component={OrderList} />
         <Screen name="OnBoarding" component={OnBoarding} />
+        <Screen name="OrderList" component={OrderList} />
         <Screen name="Home" component={Home} />
         <Screen name="BrandSelection" component={BrandSelection} />
         <Screen name="SignIn" component={SignIn} />
