@@ -36,6 +36,13 @@ const MapScreen = ({ navigation }) => {
           }}
         />
         <Appbar.Content color="white" title="Map View" />
+        <Appbar.Action
+          icon="format-list-checks"
+          color="white"
+          onPress={() => {
+            navigation.navigate("AdminList");
+          }}
+        />
       </Appbar.Header>
       <Searchbar
         placeholder="Search Location"
@@ -45,14 +52,8 @@ const MapScreen = ({ navigation }) => {
         style={styles.searchBar}
       />
       <Surface style={styles.surface} elevation={4}>
-        <Pressable
-          onPress={() => {
-            console.log("clicked");
-          }}
-        >
-          <Image source={require("../../../assets/homeIcon.png")} />
-        </Pressable>
-        <IconButton icon="cart" />
+        <IconButton icon="home" color="#54BAB9" />
+        <IconButton icon="cart" color="#54BAB9" />
       </Surface>
       <MapView
         style={styles.container}
