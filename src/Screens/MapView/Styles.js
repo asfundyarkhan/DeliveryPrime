@@ -32,7 +32,6 @@ const styles = StyleSheet.create({
   },
   timeStamp: {
     fontSize: 12,
-    fontFamily: "Font-Regular",
     fontWeight: "800",
     color: "#000",
   },
@@ -67,12 +66,12 @@ const styles = StyleSheet.create({
   },
   surface: {
     position: "absolute",
+    alignSelf: "center",
     flexDirection: "row",
     bottom: 10,
-    left: 10,
     padding: 10,
     height: 70,
-    width: "70%",
+    width: "90%",
     borderRadius: 40,
     backgroundColor: "white",
     opacity: 0.8,
