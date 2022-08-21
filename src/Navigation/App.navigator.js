@@ -12,13 +12,20 @@ import CartScreen from "../Screens/Cart";
 import PaymentMethod from "../Screens/PaymentMethod/Index";
 import CardPayment from "../Screens/CardPayment/Index";
 
+import OrderList from "../Screens/orderList";
+
+import MapScreen from "../Screens/MapView/Index";
+import AdminList from "../Screens/AdminList/Index";
+import RiderList from "../Screens/RiderList/Index";
+
 const { Navigator, Screen } = createNativeStackNavigator();
 
 const AppNavigator = () => {
   return (
-    <NavigationContainer initialRouteName="OnBoarding">
+    <NavigationContainer initialRouteName="onBoarding">
       <Navigator screenOptions={{ headerShown: false }}>
         <Screen name="OnBoarding" component={OnBoarding} />
+        <Screen name="OrderList" component={OrderList} />
         <Screen name="Home" component={Home} />
         <Screen name="BrandSelection" component={BrandSelection} />
         <Screen name="SignIn" component={SignIn} />
@@ -28,6 +35,9 @@ const AppNavigator = () => {
         <Screen name="PaymentMethod" component={PaymentMethod} />
         <Screen name="CartScreen" component={CartScreen} />
         <Screen name="CardPayment" component={CardPayment} />
+        <Screen name="RiderList" component={RiderList} />
+        <Screen name="AdminList" component={AdminList} />
+        <Screen name="MapScreen" component={MapScreen} />
       </Navigator>
     </NavigationContainer>
   );

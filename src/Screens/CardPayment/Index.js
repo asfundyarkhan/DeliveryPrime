@@ -4,11 +4,19 @@ import styles from "./Styles";
 import { useNavigation } from "@react-navigation/native";
 import { Appbar, Button } from "react-native-paper";
 import { theme } from "../../../App.styles";
+import ThankyouModal from "../../components/ThankyouModal";
 
 const CardPayment = () => {
   const navigation = useNavigation();
   const [value, setValue] = useState("");
   const [correct, setCorrect] = useState(false);
+
+  const [isVisible, setVisible] = useState(false);
+
+  const handleModalPressable = () => {
+    setVisible(false);
+    navigation.reset({ index: 0, routes: [{ name: "SignIn" }] });
+  };
 
   const [card, setCard] = useState({
     value: "",
@@ -46,14 +54,14 @@ const CardPayment = () => {
 
   return (
     <View style={styles.container}>
-      <Appbar.Header style={{ backgroundColor: theme.colors.accent }}>
+      <Appbar.Header style={{ backgroundColor: theme.colors.primary }}>
         <Appbar.BackAction
           color="white"
           onPress={() => {
             navigation.goBack();
           }}
         />
-        <Appbar.Content color="white" title="Home" />
+        <Appbar.Content color="white" title="Card Details" />
       </Appbar.Header>
       <Image
         style={styles.image}
@@ -128,13 +136,18 @@ const CardPayment = () => {
         mode="contained"
         theme={{
           roundness: 20,
-          colors: { primary: "#A0BBD6" },
+          colors: { primary: theme.colors.primary },
         }}
-        onPress={() => console.log("Pressed")}
+        onPress={() => setVisible(true)}
         style={styles.button}
       >
         Pay for the order
       </Button>
+      <ThankyouModal
+        isVisible={isVisible}
+        onClose={() => setVisible(false)}
+        onActionPress={handleModalPressable}
+      />
     </View>
   );
 };

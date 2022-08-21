@@ -2,14 +2,20 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   items: [],
+  totalPrice: 0,
+  isAdmin: false,
 };
 
 export const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
+    adminLogin(state, action) {
+      state.isAdmin = action.payload;
+    },
     addToCart(state, action) {
       state.items.push(action.payload);
+      state.totalPrice += action.payload.price;
     },
     removeFromCart(state, action) {
       const productId = action.payload;

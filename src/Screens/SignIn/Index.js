@@ -9,10 +9,18 @@ import { theme } from "../../../App.styles";
 
 const SignIn = () => {
   const navigation = useNavigation();
-  const handleLogin = () => {
-    navigation.navigate("BrandSelection");
-  };
+
   const [hidePassword, setHidePassword] = useState(true);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [isAdmin, setAdmin] = useState(false);
+  const handleLogin = (values) => {
+    if (isAdmin) {
+      navigation.navigate("AdminList");
+    } else {
+      navigation.navigate("BrandSelection");
+    }
+  };
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.logo}>
@@ -28,6 +36,15 @@ const SignIn = () => {
         />
       </View>
       <Text style={styles.text}>Sign In to your account</Text>
+      <IconButton
+        size={70}
+        icon="shield-crown"
+        color="#54BAB9"
+        onPress={() => {
+          setAdmin(!isAdmin);
+          // navigation.navigate("AdminList");
+        }}
+      />
       <Formik
         initialValues={{ email: "", password: "" }}
         onSubmit={handleLogin}
