@@ -52,8 +52,13 @@ const MapScreen = ({ navigation }) => {
         style={styles.searchBar}
       />
       <Surface style={styles.surface} elevation={4}>
-        <IconButton icon="home" color="#54BAB9" />
-        <IconButton icon="cart" color="#54BAB9" />
+        <IconButton
+          icon="bike"
+          color="#54BAB9"
+          onPress={() => {
+            navigation.navigate("RiderList");
+          }}
+        />
       </Surface>
       <MapView
         style={styles.container}

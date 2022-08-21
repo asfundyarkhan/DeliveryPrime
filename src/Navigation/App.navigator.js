@@ -22,13 +22,8 @@ const { Navigator, Screen } = createNativeStackNavigator();
 
 const AppNavigator = () => {
   return (
-
     <NavigationContainer initialRouteName="onBoarding">
-
-  
       <Navigator screenOptions={{ headerShown: false }}>
-        <Screen name="AdminList" component={AdminList} />
-        <Screen name="MapScreen" component={MapScreen} />
         <Screen name="OnBoarding" component={OnBoarding} />
         <Screen name="OrderList" component={OrderList} />
         <Screen name="Home" component={Home} />
@@ -41,6 +36,8 @@ const AppNavigator = () => {
         <Screen name="CartScreen" component={CartScreen} />
         <Screen name="CardPayment" component={CardPayment} />
         <Screen name="RiderList" component={RiderList} />
+        <Screen name="AdminList" component={AdminList} />
+        <Screen name="MapScreen" component={MapScreen} />
       </Navigator>
     </NavigationContainer>
   );

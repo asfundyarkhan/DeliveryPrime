@@ -158,7 +158,12 @@ const AdminList = ({ navigation }) => {
   return (
     <View style={{ flex: 1 }}>
       <Appbar.Header>
-        <Appbar.BackAction color="white" onPress={() => {}} />
+        <Appbar.BackAction
+          color="white"
+          onPress={() => {
+            navigation.reset({ index: 0, routes: [{ name: "SignIn" }] });
+          }}
+        />
         <Appbar.Content color="white" title="Customer Purchases" />
         <Appbar.Action
           color="white"
@@ -173,7 +178,13 @@ const AdminList = ({ navigation }) => {
         keyExtractor={(item, index) => index}
         renderItem={({ item, index }) => (
           <View style={{ flex: 1 }}>
-            <Surface style={{ height: 80, width: "100%", margin: 2 }}>
+            <Surface
+              style={{
+                height: 80,
+                width: "100%",
+                margin: 2,
+              }}
+            >
               <Card.Title
                 style={{
                   flex: 1,
@@ -194,6 +205,8 @@ const AdminList = ({ navigation }) => {
                       }}
                     />
                     <Checkbox
+                      theme={{ borderColor: "red" }}
+                      x
                       status={item.check ? "checked" : "unchecked"}
                       onPress={() => {
                         data[index].check = !data[index].check;
