@@ -1,27 +1,21 @@
-import {
-  View,
-  Text,
-  SafeAreaView,
-  Pressable,
-  Image,
-  ActionSheetIOS,
-} from "react-native";
+import { View, Text, Pressable } from "react-native";
 import React, { useState } from "react";
 import styles from "./Styles";
 import { useNavigation } from "@react-navigation/native";
 import { Appbar, IconButton } from "react-native-paper";
 import { theme } from "../../../App.styles";
-import { addDoc } from "firebase/firestore";
-import colRef from "../../config/firebase";
+import ThankyouModal from "../../components/ThankyouModal";
 
 const PaymentMethod = () => {
   const navigation = useNavigation();
 
-  const [] = useState();
+  const [isVisible, setVisible] = useState(false);
 
-  const handleCOD = () => {
-    // return addDoc(colRef, {});
+  const handleModalPressable = () => {
+    setVisible(false);
+    navigation.reset({ index: 0, routes: [{ name: "Home" }] });
   };
+
   return (
     <View style={styles.container}>
       <Appbar.Header style={{ backgroundColor: theme.colors.primary }}>
@@ -37,7 +31,7 @@ const PaymentMethod = () => {
         <Text style={styles.text}>Select Payment Method</Text>
       </View>
       <Text style={styles.text}>Cash on delivery</Text>
-      <Pressable style={styles.Button} onPress={() => handleCOD}>
+      <Pressable style={styles.Button} onPress={() => setVisible(true)}>
         <IconButton size={70} icon="cash-marker" style={styles.image} />
       </Pressable>
       <Text style={styles.text}>Credit Card</Text>
@@ -47,6 +41,11 @@ const PaymentMethod = () => {
       >
         <IconButton size={70} icon="credit-card-outline" style={styles.image} />
       </Pressable>
+      <ThankyouModal
+        isVisible={isVisible}
+        onClose={() => setVisible(false)}
+        onActionPress={handleModalPressable}
+      />
     </View>
   );
 };

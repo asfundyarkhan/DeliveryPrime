@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
     bottom: 10,
     padding: 10,
     height: 70,
-    width: "90%",
+    width: "30%",
     borderRadius: 40,
     backgroundColor: "white",
     opacity: 0.8,

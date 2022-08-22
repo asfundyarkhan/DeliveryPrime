@@ -6,22 +6,26 @@ import { Formik } from "formik";
 import { LoginForm } from "./LoginForm";
 import { useNavigation } from "@react-navigation/native";
 import { theme } from "../../../App.styles";
+import { useDispatch } from "react-redux";
+import { addUser } from "../../store/features/cartSlice";
 
 const SignIn = () => {
   const navigation = useNavigation();
 
+  const dispatch = useDispatch();
+
   const [hidePassword, setHidePassword] = useState(true);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isAdmin, setAdmin] = useState(false);
 
   const handleLogin = (values) => {
-    console.log("values ----", values);
-    // try {
-    //   signInWithEmailAndPassword(authentication,values.email,values.password)
-    navigation.navigate("BrandSelection");
-    // } catch (error) {
-
-    // }
+    if (isAdmin) {
+      navigation.navigate("AdminList");
+    } else {
+      dispatch(addUser(values.email));
+      navigation.navigate("BrandSelection");
+    }
   };
   return (
     <SafeAreaView style={styles.container}>
@@ -38,6 +42,15 @@ const SignIn = () => {
         />
       </View>
       <Text style={styles.text}>Sign In to your account</Text>
+      <IconButton
+        size={70}
+        icon="shield-crown"
+        color="#54BAB9"
+        onPress={() => {
+          setAdmin(!isAdmin);
+          // navigation.navigate("AdminList");
+        }}
+      />
       <Formik
         initialValues={{ email: "", password: "" }}
         onSubmit={handleLogin}

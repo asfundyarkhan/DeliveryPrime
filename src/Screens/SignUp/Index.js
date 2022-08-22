@@ -93,9 +93,7 @@ const SignUp = () => {
             </View>
             <Button
               mode="contained"
-              onPress={() => {
-                handleSubmit;
-              }}
+              onPress={handleSubmit}
               style={styles.button}
             >
               <Text style={{ color: "white" }}>Sign Up</Text>

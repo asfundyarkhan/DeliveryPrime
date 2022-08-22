@@ -1,16 +1,54 @@
 import { View, Text, FlatList, Pressable } from "react-native";
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import { Appbar, Surface, Avatar, Snackbar, Button } from "react-native-paper";
 import { theme } from "../../../App.styles";
-import { useNavigation } from "@react-navigation/native";
-import { useSelector } from "react-redux";
+import { useFocusEffect, useNavigation } from "@react-navigation/native";
+import { useDispatch, useSelector } from "react-redux";
 import styles from "./styles";
+import colRef from "../../config/firebase";
+import { addDoc } from "firebase/firestore";
+import GetAddress from "../../components/GetAddress";
+import { removeFromCart } from "../../store/features/cartSlice";
 
 const CartScreen = () => {
   const navigation = useNavigation();
+  const dispatch = useDispatch();
   const { items, totalPrice } = useSelector((state) => state.Cart);
   const [isVisible, setVisible] = useState(false);
+  const [address, setAddress] = useState("");
+  const [disable, setDisable] = useState(false);
 
+  useFocusEffect(
+    useCallback(() => {
+      setDisable(false);
+    }, [])
+  );
+
+  const { user } = useSelector((state) => state.Cart);
+  const handleAddData = async () => {
+    setDisable(true);
+    if (address) {
+      try {
+        await addDoc(colRef, {
+          user: user,
+          items: items,
+          totalPrice: totalPrice,
+          address: address,
+        }).then(() => {
+          setVisible(false);
+          navigation.navigate("PaymentMethod");
+        });
+      } catch (error) {
+        console.log(error);
+      }
+    } else {
+      alert("Entre your Address");
+    }
+  };
+
+  const handleOnPress = (id, price) => {
+    dispatch(removeFromCart({ id, price }));
+  };
   return (
     <View style={{ flex: 1 }}>
       <Appbar.Header style={{ backgroundColor: theme.colors.primary }}>
@@ -42,7 +80,8 @@ const CartScreen = () => {
               <Button
                 labelStyle={{ color: "white" }}
                 onPress={() => {
-                  navigation.navigate("PaymentMethod");
+                  setVisible(true);
+                  //handleAddData();
                 }}
               >
                 Total: {totalPrice}
@@ -50,7 +89,9 @@ const CartScreen = () => {
             )}
             renderItem={(val) => {
               return (
-                <Pressable onLongPress={() => setVisible(true)}>
+                <Pressable
+                  onPress={() => handleOnPress(val.item.id, val.item.price)}
+                >
                   <Surface style={styles.surfaceStyle}>
                     <View style={styles.insideSurfaceview}>
                       <View
@@ -95,13 +136,22 @@ const CartScreen = () => {
         </View>
       )}
 
-      <Snackbar
+      {/* <Snackbar
         visible={isVisible}
         onDismiss={() => setVisible(false)}
         duration={1000}
       >
         item is being removed
-      </Snackbar>
+      </Snackbar> */}
+      <GetAddress
+        isVisible={isVisible}
+        onClose={() => setVisible(false)}
+        title={"Delivery Address"}
+        val={address}
+        btnDisable={disable}
+        onChange={setAddress}
+        onActionPress={handleAddData}
+      />
     </View>
   );
 };
