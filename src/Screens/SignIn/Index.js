@@ -1,7 +1,7 @@
 import { View, Text, SafeAreaView, Image, Pressable } from "react-native";
 import React, { useState } from "react";
 import styles from "./Styles";
-import { Button, IconButton, TextInput } from "react-native-paper";
+import { Button, IconButton, TextInput, Snackbar } from "react-native-paper";
 import { Formik } from "formik";
 import { LoginForm } from "./LoginForm";
 import { useNavigation } from "@react-navigation/native";
@@ -36,6 +36,14 @@ const SignIn = () => {
   };
   return (
     <SafeAreaView style={styles.container}>
+      <Snackbar
+        visible={isAdmin}
+        onDismiss={() => setAdmin(false)}
+        duration={7000}
+        style={styles.snackBarStyle}
+      >
+        Sign In as an Admin
+      </Snackbar>
       <View style={styles.logo}>
         <Image
           style={{
@@ -131,6 +139,7 @@ const SignIn = () => {
           Forgot the password?
         </Text>
       </Button>
+
       <View style={{ flexDirection: "row", marginTop: 40 }}>
         <Text>Dont have and account?</Text>
         <Pressable
