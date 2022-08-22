@@ -86,7 +86,12 @@ const BrandSelection = ({ navigation }) => {
   return (
     <View style={{ flex: 1, backgroundColor: "silver" }}>
       <Appbar.Header>
-        <Appbar.BackAction color="white" onPress={() => navigation.goBack()} />
+        <Appbar.BackAction
+          color="white"
+          onPress={() =>
+            navigation.reset({ index: 0, routes: [{ name: "SignIn" }] })
+          }
+        />
         <Appbar.Content color="white" title="Brand List" />
       </Appbar.Header>
       <FlatList
@@ -95,7 +100,6 @@ const BrandSelection = ({ navigation }) => {
         renderItem={({ item }) => (
           <Pressable
             onPress={() => {
-              console.log("insside");
               navigation.navigate("Home");
             }}
           >
