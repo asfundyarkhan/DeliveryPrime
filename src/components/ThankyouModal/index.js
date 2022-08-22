@@ -3,7 +3,13 @@ import React from "react";
 import styles from "./styles";
 import { Button } from "react-native-paper";
 
-const ThankyouModal = ({ isVisible, onClose, onActionPress }) => {
+const ThankyouModal = ({
+  isVisible,
+  onClose,
+  onActionPress,
+  content,
+  title,
+}) => {
   return (
     <Modal
       animationType="slide"
@@ -25,10 +31,8 @@ const ThankyouModal = ({ isVisible, onClose, onActionPress }) => {
               }}
               source={require("../../../assets/logo.jpeg")}
             />
-            <Text style={styles.textStyle}>Thankyou for Trusting us</Text>
-            <Text style={styles.textStyle}>
-              Your order will be delivered Shortly
-            </Text>
+            <Text style={styles.textStyle}>{title}</Text>
+            <Text style={styles.textStyle}>{content}</Text>
             <Button
               mode="contained"
               onPress={onActionPress}

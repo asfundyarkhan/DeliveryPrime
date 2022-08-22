@@ -45,6 +45,8 @@ const PaymentMethod = () => {
         isVisible={isVisible}
         onClose={() => setVisible(false)}
         onActionPress={handleModalPressable}
+        content={"Your order will be delivered Shortly"}
+        title={"Thankyou for Trusting us"}
       />
     </View>
   );

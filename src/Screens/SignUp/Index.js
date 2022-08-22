@@ -6,12 +6,22 @@ import { Formik } from "formik";
 import { SignupForm } from "./SignupForm";
 import { useNavigation } from "@react-navigation/native";
 import { theme } from "../../../App.styles";
+import ThankyouModal from "../../components/ThankyouModal";
+
 const SignUp = () => {
   const navigation = useNavigation();
-  const handleSignUp = () => {
-    navigation.navigate("SignIn");
-  };
+  const [isVisible, setVisible] = useState(false);
   const [hidePassword, setHidePassword] = useState(true);
+
+  const handleSignUp = () => {
+    setVisible(true);
+  };
+
+  const handleModalPressable = () => {
+    setVisible(false);
+    navigation.reset({ index: 0, routes: [{ name: "SignIn" }] });
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.logo}>
@@ -111,6 +121,13 @@ const SignUp = () => {
           <Text style={{ color: theme.colors.primary }}> Sign In</Text>
         </Pressable>
       </View>
+      <ThankyouModal
+        isVisible={isVisible}
+        onClose={() => setVisible(false)}
+        onActionPress={handleModalPressable}
+        content={"Your Account is Created Sucessfully"}
+        title={""}
+      />
     </SafeAreaView>
   );
 };

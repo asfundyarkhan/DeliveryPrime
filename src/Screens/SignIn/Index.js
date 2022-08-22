@@ -8,11 +8,14 @@ import { useNavigation } from "@react-navigation/native";
 import { theme } from "../../../App.styles";
 import { useDispatch } from "react-redux";
 import { addUser } from "../../store/features/cartSlice";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
 const SignIn = () => {
   const navigation = useNavigation();
 
   const dispatch = useDispatch();
+
+  const auth = getAuth();
 
   const [hidePassword, setHidePassword] = useState(true);
   const [email, setEmail] = useState("");
@@ -21,7 +24,11 @@ const SignIn = () => {
 
   const handleLogin = (values) => {
     if (isAdmin) {
-      navigation.navigate("AdminList");
+      signInWithEmailAndPassword(auth, values.email, values.password)
+        .then(() => navigation.navigate("AdminList"))
+        .catch(() => {
+          alert("Invalid Crendtials");
+        });
     } else {
       dispatch(addUser(values.email));
       navigation.navigate("BrandSelection");
@@ -51,6 +58,7 @@ const SignIn = () => {
           // navigation.navigate("AdminList");
         }}
       />
+
       <Formik
         initialValues={{ email: "", password: "" }}
         onSubmit={handleLogin}

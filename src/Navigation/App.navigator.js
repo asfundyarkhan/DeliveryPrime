@@ -11,12 +11,13 @@ import ResetPassword from "../Screens/ResetPassword/Index";
 import CartScreen from "../Screens/Cart";
 import PaymentMethod from "../Screens/PaymentMethod/Index";
 import CardPayment from "../Screens/CardPayment/Index";
-
+import Checkout from "../Screens/Checkout";
 import OrderList from "../Screens/orderList";
 
 import MapScreen from "../Screens/MapView/Index";
 import AdminList from "../Screens/AdminList/Index";
 import RiderList from "../Screens/RiderList/Index";
+import ItemFinalizing from "../Screens/Checkout";
 
 const { Navigator, Screen } = createNativeStackNavigator();
 
@@ -41,6 +42,7 @@ const AppNavigator = () => {
         <Screen name="RiderList" component={RiderList} />
         <Screen name="AdminList" component={AdminList} />
         <Screen name="MapScreen" component={MapScreen} />
+        <Screen name="Checkout" component={Checkout} />
       </Navigator>
     </NavigationContainer>
   );

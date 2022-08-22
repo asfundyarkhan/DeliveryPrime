@@ -11,6 +11,8 @@ import {
   Checkbox,
 } from "react-native-paper";
 
+import { getAuth, signOut } from "firebase/auth";
+
 const AdminList = ({ navigation }) => {
   const [data, setData] = useState([
     {
@@ -154,6 +156,9 @@ const AdminList = ({ navigation }) => {
       check: false,
     },
   ]);
+
+  const auth = getAuth();
+
   const [check, setCheck] = useState(false);
   return (
     <View style={{ flex: 1 }}>
@@ -161,7 +166,15 @@ const AdminList = ({ navigation }) => {
         <Appbar.BackAction
           color="white"
           onPress={() => {
-            navigation.reset({ index: 0, routes: [{ name: "SignIn" }] });
+            signOut(auth)
+              .then(() => {
+                // Sign-out successful.
+                navigation.reset({ index: 0, routes: [{ name: "SignIn" }] });
+              })
+              .catch((error) => {
+                // An error happened.
+                alert("Cannot Logout");
+              });
           }}
         />
         <Appbar.Content color="white" title="Customer Purchases" />

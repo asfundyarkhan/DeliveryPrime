@@ -26,6 +26,12 @@ const Home = ({ navigation }) => {
       price: 1299,
       shirt: require("../../../assets/shirt1.png"),
       id: "0",
+      description: [
+        "Premium Quality with Real Picture",
+        " 7- Days Easy Replacement.",
+        "Cash on Delivery ",
+        "Free home delivery in all over the Pakistan",
+      ],
     },
     {
       title: "Nishat Linen",
@@ -35,6 +41,12 @@ const Home = ({ navigation }) => {
       price: 1299,
       shirt: require("../../../assets/shirt2.png"),
       id: "1",
+      description: [
+        "Premium Quality with Real Picture",
+        " 7- Days Easy Replacement.",
+        "Cash on Delivery ",
+        "Free home delivery in all over the Pakistan",
+      ],
     },
     {
       title: "Alkaram Studios",
@@ -44,6 +56,12 @@ const Home = ({ navigation }) => {
       price: 1299,
       shirt: require("../../../assets/shirt8.png"),
       id: "2",
+      description: [
+        "Premium Quality with Real Picture",
+        " 7- Days Easy Replacement.",
+        "Cash on Delivery ",
+        "Free home delivery in all over the Pakistan",
+      ],
     },
     {
       title: "Beach Tree",
@@ -53,6 +71,12 @@ const Home = ({ navigation }) => {
       price: 1299,
       shirt: require("../../../assets/shirt4.png"),
       id: "3",
+      description: [
+        "Premium Quality with Real Picture",
+        " 7- Days Easy Replacement.",
+        "Cash on Delivery ",
+        "Free home delivery in all over the Pakistan",
+      ],
     },
     {
       title: "Sapphire",
@@ -62,6 +86,12 @@ const Home = ({ navigation }) => {
       price: 1299,
       shirt: require("../../../assets/shirt5.png"),
       id: "4",
+      description: [
+        "Premium Quality with Real Picture",
+        " 7- Days Easy Replacement.",
+        "Cash on Delivery ",
+        "Free home delivery in all over the Pakistan",
+      ],
     },
     {
       title: "Bonanza Satrangi",
@@ -71,6 +101,12 @@ const Home = ({ navigation }) => {
       price: 1299,
       shirt: require("../../../assets/shirt6.png"),
       id: "5",
+      description: [
+        "Premium Quality with Real Picture",
+        " 7- Days Easy Replacement.",
+        "Cash on Delivery ",
+        "Free home delivery in all over the Pakistan",
+      ],
     },
     {
       title: "Sana Safinaz",
@@ -80,6 +116,12 @@ const Home = ({ navigation }) => {
       price: 1299,
       shirt: require("../../../assets/shirt7.png"),
       id: "6",
+      description: [
+        "Premium Quality with Real Picture",
+        " 7- Days Easy Replacement.",
+        "Cash on Delivery ",
+        "Free home delivery in all over the Pakistan",
+      ],
     },
     {
       title: "J Dot",
@@ -89,6 +131,12 @@ const Home = ({ navigation }) => {
       price: 1299,
       shirt: require("../../../assets/shirt1.png"),
       id: "7",
+      description: [
+        "Premium Quality with Real Picture",
+        " 7- Days Easy Replacement.",
+        "Cash on Delivery ",
+        "Free home delivery in all over the Pakistan",
+      ],
     },
     {
       title: "Nishat Linen",
@@ -98,6 +146,12 @@ const Home = ({ navigation }) => {
       price: 1299,
       shirt: require("../../../assets/shirt2.png"),
       id: "8",
+      description: [
+        "Premium Quality with Real Picture",
+        " 7- Days Easy Replacement.",
+        "Cash on Delivery ",
+        "Free home delivery in all over the Pakistan",
+      ],
     },
     {
       title: "Alkaram Studios",
@@ -107,6 +161,12 @@ const Home = ({ navigation }) => {
       price: 1299,
       shirt: require("../../../assets/shirt7.png"),
       id: "9",
+      description: [
+        "Premium Quality with Real Picture",
+        " 7- Days Easy Replacement.",
+        "Cash on Delivery ",
+        "Free home delivery in all over the Pakistan",
+      ],
     },
     {
       title: "Beach Tree",
@@ -116,6 +176,12 @@ const Home = ({ navigation }) => {
       price: 1299,
       shirt: require("../../../assets/shirt4.png"),
       id: "10",
+      description: [
+        "Premium Quality with Real Picture",
+        " 7- Days Easy Replacement.",
+        "Cash on Delivery ",
+        "Free home delivery in all over the Pakistan",
+      ],
     },
     {
       title: "Sapphire",
@@ -125,6 +191,12 @@ const Home = ({ navigation }) => {
       price: 1299,
       shirt: require("../../../assets/shirt5.png"),
       id: "11",
+      description: [
+        "Premium Quality with Real Picture",
+        " 7- Days Easy Replacement.",
+        "Cash on Delivery ",
+        "Free home delivery in all over the Pakistan",
+      ],
     },
     {
       title: "Bonanza Satrangi",
@@ -134,6 +206,12 @@ const Home = ({ navigation }) => {
       price: 1299,
       shirt: require("../../../assets/shirt6.png"),
       id: "12",
+      description: [
+        "Premium Quality with Real Picture",
+        " 7- Days Easy Replacement.",
+        "Cash on Delivery ",
+        "Free home delivery in all over the Pakistan",
+      ],
     },
     {
       title: "Sana Safinaz",
@@ -143,6 +221,12 @@ const Home = ({ navigation }) => {
       price: 1299,
       shirt: require("../../../assets/shirt7.png"),
       id: "13",
+      description: [
+        "Premium Quality with Real Picture",
+        " 7- Days Easy Replacement.",
+        "Cash on Delivery ",
+        "Free home delivery in all over the Pakistan",
+      ],
     },
   ];
 
@@ -189,7 +273,10 @@ const Home = ({ navigation }) => {
             style={[styles.surface, { backgroundColor: "#9ED2C6" }]}
             elevation={4}
           >
-            <Card style={{ height: 170, width: 150 }} onPress={showModal}>
+            <Card
+              style={{ height: 170, width: 150 }}
+              onPress={() => navigation.navigate("Checkout", item)}
+            >
               <Card.Title
                 titleStyle={{ height: 5, color: "#9ED2C6" }}
                 title={item.shirt}
