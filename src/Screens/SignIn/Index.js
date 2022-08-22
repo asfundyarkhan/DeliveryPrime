@@ -6,18 +6,24 @@ import { Formik } from "formik";
 import { LoginForm } from "./LoginForm";
 import { useNavigation } from "@react-navigation/native";
 import { theme } from "../../../App.styles";
+import { useDispatch } from "react-redux";
+import { addUser } from "../../store/features/cartSlice";
 
 const SignIn = () => {
   const navigation = useNavigation();
+
+  const dispatch = useDispatch();
 
   const [hidePassword, setHidePassword] = useState(true);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isAdmin, setAdmin] = useState(false);
+
   const handleLogin = (values) => {
     if (isAdmin) {
       navigation.navigate("AdminList");
     } else {
+      dispatch(addUser(values.email));
       navigation.navigate("BrandSelection");
     }
   };

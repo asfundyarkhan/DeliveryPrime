@@ -1,25 +1,36 @@
 import { View, Text, FlatList, Pressable } from "react-native";
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import { Appbar, Surface, Avatar, Snackbar, Button } from "react-native-paper";
 import { theme } from "../../../App.styles";
-import { useNavigation } from "@react-navigation/native";
-import { useSelector } from "react-redux";
+import { useFocusEffect, useNavigation } from "@react-navigation/native";
+import { useDispatch, useSelector } from "react-redux";
 import styles from "./styles";
 import colRef from "../../config/firebase";
-import { getDocs, set, addDoc } from "firebase/firestore";
+import { addDoc } from "firebase/firestore";
 import GetAddress from "../../components/GetAddress";
+import { removeFromCart } from "../../store/features/cartSlice";
 
 const CartScreen = () => {
   const navigation = useNavigation();
+  const dispatch = useDispatch();
   const { items, totalPrice } = useSelector((state) => state.Cart);
   const [isVisible, setVisible] = useState(false);
   const [address, setAddress] = useState("");
   const [disable, setDisable] = useState(false);
+
+  useFocusEffect(
+    useCallback(() => {
+      setDisable(false);
+    }, [])
+  );
+
+  const { user } = useSelector((state) => state.Cart);
   const handleAddData = async () => {
     setDisable(true);
     if (address) {
       try {
         await addDoc(colRef, {
+          user: user,
           items: items,
           totalPrice: totalPrice,
           address: address,
@@ -33,6 +44,10 @@ const CartScreen = () => {
     } else {
       alert("Entre your Address");
     }
+  };
+
+  const handleOnPress = (id, price) => {
+    dispatch(removeFromCart({ id, price }));
   };
   return (
     <View style={{ flex: 1 }}>
@@ -74,7 +89,9 @@ const CartScreen = () => {
             )}
             renderItem={(val) => {
               return (
-                <Pressable>
+                <Pressable
+                  onPress={() => handleOnPress(val.item.id, val.item.price)}
+                >
                   <Surface style={styles.surfaceStyle}>
                     <View style={styles.insideSurfaceview}>
                       <View
