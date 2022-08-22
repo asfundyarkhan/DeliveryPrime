@@ -11,6 +11,9 @@ import ResetPassword from "../Screens/ResetPassword/Index";
 import CartScreen from "../Screens/Cart";
 import PaymentMethod from "../Screens/PaymentMethod/Index";
 import CardPayment from "../Screens/CardPayment/Index";
+
+import OrderList from "../Screens/orderList";
+
 import MapScreen from "../Screens/MapView/Index";
 import AdminList from "../Screens/AdminList/Index";
 import RiderList from "../Screens/RiderList/Index";
@@ -24,6 +27,8 @@ const AppNavigator = () => {
         <Screen name="OnBoarding" component={OnBoarding} />
         <Screen name="AdminList" component={AdminList} />
         <Screen name="MapScreen" component={MapScreen} />
+        <Screen name="OnBoarding" component={OnBoarding} />
+        <Screen name="OrderList" component={OrderList} />
         <Screen name="Home" component={Home} />
         <Screen name="BrandSelection" component={BrandSelection} />
         <Screen name="SignIn" component={SignIn} />

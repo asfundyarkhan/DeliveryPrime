@@ -8,8 +8,9 @@ import styles from "./styles";
 
 const CartScreen = () => {
   const navigation = useNavigation();
-  const { items } = useSelector((state) => state.Cart);
+  const { items, totalPrice } = useSelector((state) => state.Cart);
   const [isVisible, setVisible] = useState(false);
+
   return (
     <View style={{ flex: 1 }}>
       <Appbar.Header style={{ backgroundColor: theme.colors.primary }}>
@@ -31,6 +32,22 @@ const CartScreen = () => {
             data={items}
             numColumns={2}
             keyExtractor={(item) => item.id}
+            ListFooterComponentStyle={{
+              height: 40,
+              backgroundColor: theme.colors.primary,
+              borderRadius: theme.roundness,
+              marginVertical: 10,
+            }}
+            ListFooterComponent={(val) => (
+              <Button
+                labelStyle={{ color: "white" }}
+                onPress={() => {
+                  navigation.navigate("PaymentMethod");
+                }}
+              >
+                Total: {totalPrice}
+              </Button>
+            )}
             renderItem={(val) => {
               return (
                 <Pressable onLongPress={() => setVisible(true)}>
@@ -45,8 +62,14 @@ const CartScreen = () => {
                         </Text>
                       </View>
 
-                      <Text style={{ fontSize: 24, fontWeight: "600" }}>
-                        {val.item.price}
+                      <Text
+                        style={{
+                          fontSize: 24,
+                          fontWeight: "600",
+                          marginLeft: 5,
+                        }}
+                      >
+                        Rs: {val.item.price}
                       </Text>
                     </View>
                   </Surface>
