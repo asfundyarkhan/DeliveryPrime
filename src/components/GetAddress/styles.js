@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     width: "95%",
     bottom: "30%",
-    height: 500,
+    height: "50%",
     alignSelf: "center",
     backgroundColor: "white",
     borderRadius: 12,
@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 0.25,
     shadowRadius: 4,
-    elevation: 5,
+    //elevation: 5,
   },
 
   heading: {

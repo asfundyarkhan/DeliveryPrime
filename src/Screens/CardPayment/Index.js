@@ -4,6 +4,7 @@ import styles from "./Styles";
 import { useNavigation } from "@react-navigation/native";
 import { Appbar, Button } from "react-native-paper";
 import { theme } from "../../../App.styles";
+// import ThankyouModal from "../../components/ThankyouModal";
 import ThankyouModal from "../../components/ThankyouModal";
 
 const CardPayment = () => {
